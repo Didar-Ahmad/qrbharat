@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+
+:root { --ink:#17211c; --muted:#657069; --line:#dce2de; --paper:#f5f7f4; --card:#fff; --green:#155f3f; --lime:#dff26a; --orange:#ff7a3d; }
+* { box-sizing:border-box; }
+body { margin:0; color:var(--ink); background:var(--paper); font-family:'DM Sans',sans-serif; }
+button,input,textarea,select { font:inherit; }
+button { cursor:pointer; }
+.topbar { height:72px; display:flex; align-items:center; justify-content:space-between; padding:0 max(24px,calc((100vw - 1180px)/2)); background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:20; }
+.brand { display:flex; align-items:center; gap:11px; font:800 20px Manrope; letter-spacing:-.6px; }
+.brand-mark { width:34px; height:34px; border-radius:10px; background:var(--green); display:grid; place-items:center; color:white; }
+.privacy { display:flex; align-items:center; gap:8px; color:var(--green); font-size:13px; font-weight:700; background:#eff8f2; padding:8px 12px; border-radius:30px; }
+main { max-width:1180px; margin:auto; padding:52px 24px 72px; }
+.hero { display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:center; margin-bottom:44px; }
+.eyebrow { display:inline-flex; gap:8px; align-items:center; text-transform:uppercase; font-weight:800; font-size:12px; letter-spacing:1.6px; color:var(--green); }
+h1 { font:800 clamp(42px,6vw,72px)/.98 Manrope; letter-spacing:-3.8px; margin:15px 0 22px; max-width:800px; }
+.hero p { color:var(--muted); font-size:18px; line-height:1.6; max-width:630px; margin:0; }
+.hero-art { min-height:270px; border-radius:32px; background:var(--green); position:relative; overflow:hidden; display:grid; place-items:center; }
+.hero-art:before,.hero-art:after { content:''; position:absolute; width:210px; height:210px; border-radius:50%; border:55px solid rgba(223,242,106,.17); }
+.hero-art:before { top:-110px; right:-50px; }.hero-art:after { bottom:-130px; left:-50px; }
+.mini-qr { background:white; border-radius:22px; padding:18px; width:176px; height:176px; transform:rotate(5deg); box-shadow:0 18px 50px #0b3d2990; position:relative; z-index:2; }
+.mini-grid { width:100%;height:100%;background:repeating-conic-gradient(#17211c 0 25%,transparent 0 50%) 0/20px 20px; mask:radial-gradient(circle at 50% 50%,transparent 0 18%,#000 19%); }
+.workspace { display:grid; grid-template-columns:minmax(0,1fr) 410px; gap:22px; align-items:start; }
+.panel { background:var(--card); border:1px solid var(--line); border-radius:24px; box-shadow:0 8px 30px rgba(20,45,31,.04); }
+.editor { padding:24px; }
+.tabs { display:flex; gap:8px; overflow:auto; padding-bottom:18px; scrollbar-width:none; }
+.tab { white-space:nowrap; border:1px solid var(--line); background:#fff; padding:9px 13px; border-radius:12px; color:var(--muted); font-size:13px; font-weight:700; }
+.tab.active { color:white; border-color:var(--green); background:var(--green); }
+.section-title { display:flex; justify-content:space-between; align-items:center; margin:8px 0 18px; }
+.section-title h2 { font:800 21px Manrope; margin:0; letter-spacing:-.5px; }
+.badge { background:#f0f2ef; padding:5px 9px; border-radius:8px; font-size:11px; font-weight:800; color:var(--muted); }
+.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
+.field { display:flex; flex-direction:column; gap:7px; }
+.field.full { grid-column:1/-1; }
+label { font-size:12px; font-weight:800; color:#435048; }
+input,textarea,select { border:1px solid #d9dfdb; border-radius:11px; padding:12px 13px; color:var(--ink); background:#fbfcfb; outline:none; width:100%; }
+input:focus,textarea:focus,select:focus { border-color:var(--green); box-shadow:0 0 0 3px #155f3f15; }
+textarea { min-height:80px; resize:vertical; }
+.customize { border-top:1px solid var(--line); margin-top:23px; padding-top:20px; }
+.custom-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:13px; }
+.color-input { height:44px; padding:5px; }
+.logo-drop { border:1px dashed #b7c1ba; background:#f8faf8; padding:11px; border-radius:11px; text-align:center; font-size:12px; position:relative; color:var(--muted); }
+.logo-drop input { position:absolute;inset:0;opacity:0;cursor:pointer; }
+.preview { padding:24px; position:sticky; top:94px; }
+.preview-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; }
+.preview-head h2 { font:800 19px Manrope;margin:0; }.live { color:var(--green);font-size:12px;font-weight:800;display:flex;align-items:center;gap:6px; }.live:before { content:'';width:7px;height:7px;background:#32b56b;border-radius:50%; }
+.qr-stage { aspect-ratio:1; background:#eef1ee; border-radius:18px; display:grid; place-items:center; padding:28px; overflow:hidden; }
+#qrCanvas { max-width:100%;max-height:100%;background:white;box-shadow:0 8px 24px #24382c18; }
+.hint { text-align:center; font-size:12px;color:var(--muted); margin:14px 0 18px; }
+.actions { display:grid;grid-template-columns:1fr 1fr;gap:10px; }
+.btn { border:0;border-radius:12px;padding:13px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:8px; }
+.btn.primary { background:var(--green);color:white; }.btn.secondary { background:#edf1ee;color:var(--ink); }
+.local-note { margin-top:15px;padding:11px;border-radius:10px;background:#f8fae9;color:#52601c;font-size:11px;line-height:1.45; }
+.shop-banner { margin-top:24px; display:flex;justify-content:space-between;align-items:center;gap:22px;padding:24px 28px;background:#17211c;color:white;border-radius:20px; }
+.shop-banner h3 { margin:0 0 5px;font:800 18px Manrope; }.shop-banner p { margin:0;color:#bdc5c0;font-size:13px; }
+.shop-banner button { background:var(--lime);color:#25300e;border:0;padding:12px 18px;border-radius:11px;font-weight:800;white-space:nowrap; }
+.poster-modal { position:fixed;inset:0;background:#101a15c7;z-index:50;display:none;align-items:center;justify-content:center;padding:20px; }
+.poster-modal.open { display:flex; }.modal-card { width:min(1050px,96vw);max-height:92vh;overflow:auto;background:white;border-radius:22px;padding:22px; }.modal-top { display:flex;justify-content:space-between;align-items:center;margin-bottom:18px; }.modal-top h2{margin:0;font:800 21px Manrope}.icon-btn{border:0;background:#edf0ee;border-radius:9px;width:36px;height:36px;font-size:20px}
+.poster-form { display:grid;grid-template-columns:1fr 1.4fr;gap:22px; }.poster-fields{display:flex;flex-direction:column;gap:12px}.poster-preview{background:#edf0ed;padding:18px;border-radius:16px}.a4{background:#fff;aspect-ratio:210/297;padding:8%;box-shadow:0 8px 25px #0002;text-align:center;display:flex;flex-direction:column}.a4 h2{font:800 26px Manrope;margin:8px 0 2px}.a4>p{margin:0 0 20px;color:#68716c;font-size:12px}.poster-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:1}.poster-code{border:1px solid #dfe4e1;border-radius:12px;padding:10px;display:flex;flex-direction:column;align-items:center;justify-content:center}.poster-code canvas{width:85%;max-width:130px}.poster-code b{font-size:12px;margin-top:7px}.poster-code span{font-size:8px;color:#6d756f}.modal-actions{display:flex;gap:10px;margin-top:15px}.modal-actions .btn{flex:1}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.hero-art{display:none}.workspace{grid-template-columns:1fr}.preview{position:static}.poster-form{grid-template-columns:1fr}.poster-preview{max-width:560px;margin:auto}}
+@media(max-width:520px){main{padding:34px 14px}.topbar{padding:0 15px}.privacy span{display:none}h1{letter-spacing:-2.5px}.form-grid,.custom-row{grid-template-columns:1fr}.field.full{grid-column:auto}.shop-banner{align-items:flex-start;flex-direction:column}.poster-grid{gap:6px}.a4{padding:6%}}
+@media print { body>*{display:none!important}.poster-modal,.modal-card,.poster-form,.poster-preview,.a4{display:block!important;position:static!important;background:white!important;padding:0!important;box-shadow:none!important}.poster-modal{position:static!important}.modal-top,.poster-fields,.modal-actions{display:none!important}.poster-preview{width:210mm}.a4{width:210mm;height:297mm;aspect-ratio:auto;padding:18mm!important}.poster-code canvas{max-width:45mm} }

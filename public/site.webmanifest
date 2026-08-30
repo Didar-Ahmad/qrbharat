@@ -1,0 +1,9 @@
+{
+  "name": "QR Bharat",
+  "short_name": "QR Bharat",
+  "description": "Free and private QR code generator for India",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f7f4",
+  "theme_color": "#155f3f"
+}
